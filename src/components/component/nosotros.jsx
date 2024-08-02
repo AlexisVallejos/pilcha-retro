@@ -88,7 +88,7 @@ const Nosotros = () => {
           </div>
           <div className="flex items-center gap-4">
            
-            <Link href="https://www.instagram.com/pilcha_retro?igsh=MXRmeW0zemU0ODNscQ==" className="text-muted-foreground hover:text-primary transition-colors" prefetch={false}>
+            <Link href="https://www.instagram.com/pilcha_retro?igsh=MXRmeW0zemU0ODNscQ==" target="_blank" className="text-muted-foreground hover:text-primary transition-colors" prefetch={false}>
               <InstagramIcon className="h-6 w-6" />
             </Link>
           
