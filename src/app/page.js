@@ -116,7 +116,7 @@ function App() {
           <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('home')}>
             Home
           </a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('catalogo')}>
+          <a className="text-sm font-medium hover:underline underline-offset-4" href="/catalogo" onClick={() => setCurrentPage('catalogo')}>
             Catalog
           </a>
           <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('nosotros')}>
