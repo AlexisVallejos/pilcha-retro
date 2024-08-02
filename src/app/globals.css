@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+ :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  
+}
+
+*{
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.imagenPrincipal{
+  
+  padding: 100px;
+}
+
+
+
+
+.fondoPrincipal {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ensures the background covers the entire screen */
+  display: flex; /* Ensures the content inside the div is centered */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  color: rgb(255, 255, 255); /* Ensures the text is readable over the background */
+  z-index: 0;
+  overflow: hidden; /* Prevents overflow issues */
+}
+
+.fondoPrincipal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://soydelmillo.com/wp-content/uploads/2023/07/Monumental.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: opacity(0.6); /* Applies opacity to the background */
+  z-index: -1; /* Ensures the background is behind the content */
+}
+
+
+
+/* Ensure that the content inside fondoPrincipal is above the background */
+.fondoPrincipal > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* Aplique estos estilos al selector apropiado, como una clase, un id o un elemento */
+.custom-navbar {
+  padding-left: 1rem; /* Corresponds to px-4 in Tailwind */
+  padding-right: 1rem; /* Corresponds to px-4 in Tailwind */
+}
+
+@media (min-width: 1024px) {
+  .custom-navbar {
+    padding-left: 1.5rem; /* Corresponds to lg:px-6 in Tailwind */
+    padding-right: 1.5rem; /* Corresponds to lg:px-6 in Tailwind */
+  }
+}
+.custom-navbar img {
+  width: 5em;
+  height: 4.5em;
+}
+
+.custom-navbar {
+  height: 3.5rem; /* Corresponds to h-14 in Tailwind */
+  display: flex; /* Corresponds to flex in Tailwind */
+  align-items: center; /* Corresponds to items-center in Tailwind */
+background: rgb(1,10,20);
+background: linear-gradient(90deg, rgba(1,10,20,1) 9%, rgba(10,41,79,1) 66%, rgb(13, 52, 94) 100%);
+  color: white; /* Corresponds to text-white in Tailwind */
+  position: sticky; /* Corresponds to sticky in Tailwind */
+  top: 0; /* Corresponds to top-0 in Tailwind */
+  z-index: 50; /* Corresponds to z-50 in Tailwind */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem; /* Redondear las esquinas */
+}
+
+.image-container img {
+  transition: transform 0.3s ease, opacity 0.5s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.1);
+}
+
+
+  .animated-text {
+    color: white;
+    font: 700 normal 2.5em 'tahoma';
+    text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+  }
+  .animated-text::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .button {
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #ffffff80;
+    text-shadow: none;
+    background: transparent;
+    cursor: pointer;
+    box-shadow: transparent;
+    border: 1px solid #ffffff80;
+    transition: 0.5s ease;
+    user-select: none;
+  }
+  
+  #btn:hover{
+    color: #ffffff;
+    background: #008cff;
+    border: 1px solid #008cff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff,
+      0 0 100px #008cff;
+  }
+
+
+
+    
