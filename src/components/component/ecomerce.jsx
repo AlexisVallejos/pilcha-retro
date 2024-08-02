@@ -242,9 +242,8 @@ const Ecommerce = ({ setCurrentPage }) => {
           <div className="bg-white p-4 dark:bg-gray-950">
             <h3 className="font-bold text-xl">Argentina 1986</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              The famous 86 World Cup where "revenge" was also taken against the English.
+              The famous 86 World Cup where revenge was also taken against the English.
             </p>
-          
           </div>
         </div>
       </div>
