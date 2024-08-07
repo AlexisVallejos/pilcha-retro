@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
-import productos from '@/data/productos';
+import Detalles from '@/components/component/Detalles';
 import { Button } from "@/components/ui/button";
 
 export function ProductoDetalles() {
   const router = useRouter();
   const { id } = router.query;
-  const producto = productos.find((producto) => producto.id === parseInt(id, 10));
+  const producto = Detalles.find((producto) => producto.id === parseInt(id, 10));
 
   if (!producto) {
     return <p>Producto no encontrado</p>;

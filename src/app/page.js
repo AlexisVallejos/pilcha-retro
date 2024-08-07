@@ -8,7 +8,7 @@ import Catalogo from '@/components/component/catalogo';
 import Carrito from '@/components/component/carrito';
 import Alert from '@/components/component/Alert';
 import Nosotros from '@/components/component/nosotros';
-import ProductoDetalle from '@/pages/product/[id]'; // Importa el componente dinámico de producto
+import ProductoDetalle from '@/Productos/product/[id]'; // Importa el componente dinámico de producto
 
 function App() {
   const router = useRouter();
