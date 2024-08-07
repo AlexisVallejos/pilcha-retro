@@ -1,17 +1,14 @@
 "use client";
 
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Ecomerce from '@/components/component/ecomerce';
 import Catalogo from '@/components/component/catalogo';
 import Carrito from '@/components/component/carrito';
 import Alert from '@/components/component/Alert';
 import Nosotros from '@/components/component/nosotros';
-import ProductoDetalle from '@/Productos/product/[id]'; // Importa el componente dinámico de producto
 
 function App() {
-  const router = useRouter();
   const [currentPage, setCurrentPage] = useState('home');
   const [carrito, setCarrito] = useState([]);
   const [alertVisible, setAlertVisible] = useState(false);
@@ -60,8 +57,8 @@ function App() {
         },
         body: JSON.stringify({
           title: 'Productos del carrito',
-          quantity: 1, // Ajustar según la cantidad total de productos
-          price: carrito.reduce((total, item) => total + item.cantidad * item.precio, 0), // Ajustar según el precio total
+          quantity: 1,
+          price: carrito.reduce((total, item) => total + item.cantidad * item.precio, 0),
         }),
       });
 
@@ -83,25 +80,20 @@ function App() {
   };
 
   const renderPage = () => {
-    const { pathname } = router;
-
-    switch (pathname) {
-      case '/':
+    switch (currentPage) {
+      case 'home':
         return <Ecomerce setCurrentPage={setCurrentPage} />;
-      case '/catalogo':
+      case 'catalogo':
         return <Catalogo addToCart={addToCart} />;
-      case '/carrito':
+      case 'carrito':
         return (
           <div>
             <Carrito items={carrito} addToCart={addToCart} removeFromCart={removeFromCart} handleBuy={handleBuy} />
           </div>
         );
-      case '/nosotros':
+      case 'nosotros':
         return <Nosotros />;
       default:
-        if (pathname.startsWith('/product/')) {
-          return <ProductoDetalle />;
-        }
         return null;
     }
   };
@@ -109,21 +101,32 @@ function App() {
   return (
     <div>
       <Alert message="Producto agregado al carrito!" visible={alertVisible} />
+
       <header className="custom-navbar">
         <a className="flex items-center justify-center" href="#" onClick={() => setCurrentPage('home')}>
-          <img className="h-6 w-6" src='/img/logoo.png' alt="Pilcha Retro" />
+          <img className="h-6 w-6" src='/img/logoo.png' alt="Pilcha Retro"></img>
           <span className="sr-only">Retro Football Shirts</span>
         </a>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('home')}>Home</a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('catalogo')}>Catalog</a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('nosotros')}>About</a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('carrito')}>Cart <span className="cart-count">({carrito.length})</span></a>
+          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('home')}>
+            Home
+          </a>
+          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('catalogo')}>
+            Catalog
+          </a>
+          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('nosotros')}>
+            About
+          </a>
+          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('carrito')}>
+            Cart <span className="cart-count">({carrito.length})</span>
+          </a>
         </nav>
       </header>
+
       <main className="flex-1">
         {renderPage()}
       </main>
+
       <footer className="bg-gray-900 text-white">
         <div className="container mx-auto px-4 py-6">
           <div className="flex justify-between items-center">

@@ -190,7 +190,7 @@ function Catalogo({ addToCart }) {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {filteredProducts.map((producto) => (
               <div key={producto.id} className="group border border-black rounded-lg">
-                <Link href={`/product/${producto.id}`}>
+                <Link href={`/producto/${producto.id}`}>
                   <a>
                     <img
                       alt={producto.nombre}
