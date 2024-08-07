@@ -1,4 +1,4 @@
-import  Link  from 'next/link';
+import Link from 'next/link';
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -77,8 +77,7 @@ function Catalogo({ addToCart }) {
       imagen: 'https://marcasjerez.com/wp-content/uploads/2021/07/fa2fc5c9-900x900.jpg',
       descripcion: 'The 1998-99 La Liga was unusual. Barça won the championship despite 14 slip-ups (7 draws and 7 losses)'
     },
-];
-
+  ];
 
   const handleCategoryChange = (category) => {
     setCategoryFilter((prev) =>
@@ -176,7 +175,7 @@ function Catalogo({ addToCart }) {
               <DropdownMenuTrigger asChild>
                 <Button className="shrink-0" variant="outline">
                   <ArrowUpDownIcon className="w-4 h-4 mr-2" />
-                  sort by
+                  Sort by
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-[200px]">
@@ -188,25 +187,28 @@ function Catalogo({ addToCart }) {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {filteredProducts.map((producto) => (
               <div key={producto.id} className="group border border-black rounded-lg">
-                <img
-                  alt={producto.nombre}
-                  className="object-cover w-full aspect-[3/4] group-hover:opacity-50 transition-opacity border border-black rounded-lg"
-                  height={400}
-                  src={producto.imagen}
-                  width={300}
-                />
-                <div className="bg-white p-4 dark:bg-gray-950 border border-black rounded-lg">
-                  <h3 className="font-bold text-xl">{producto.nombre}</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{producto.descripcion}</p>
-                  <h4 className="font-semibold text-lg md:text-x1">${producto.precio}</h4>
-                  <button onClick={() => addToCart(producto)} className="mt-2 bg-blue-500 text-white px-2 py-2  border border-blue-700 rounded-lg hover:opacity-75 transition-opacity">
-                Add to cart
+                <Link href={`/product/${producto.id}`}>
+                  <a>
+                    <img
+                      alt={producto.nombre}
+                      className="object-cover w-full aspect-[3/4] group-hover:opacity-50 transition-opacity border border-black rounded-lg"
+                      height={400}
+                      src={producto.imagen}
+                      width={300}
+                    />
+                    <div className="bg-white p-4 dark:bg-gray-950 border border-black rounded-lg">
+                      <h3 className="font-bold text-xl">{producto.nombre}</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{producto.descripcion}</p>
+                      <h4 className="font-semibold text-lg md:text-xl">${producto.precio}</h4>
+                    </div>
+                  </a>
+                </Link>
+                <button onClick={() => addToCart(producto)} className="mt-2 bg-blue-500 text-white px-2 py-2 border border-blue-700 rounded-lg hover:opacity-75 transition-opacity">
+                  Add to cart
                 </button>
-                </div>
-                
               </div>
             ))}
           </div>
