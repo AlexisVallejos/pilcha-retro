@@ -192,7 +192,7 @@ const Ecommerce = ({ setCurrentPage }) => {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 animate-fade-in">
-                  <Link className="absolute inset-0 z-10" href="#">
+                  <Link className="absolute inset-0 z-10" href="https://pilcha-retro.vercel.app/producto/2">
                     <span className="sr-only">View</span>
                   </Link>
                   <img
