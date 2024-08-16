@@ -132,7 +132,7 @@ function App() {
           <div className="flex justify-between items-center">
             <p className="text-sm">© 2024 Pilcha Retro</p>
             <Link href="#" legacyBehavior>
-              <a className="hover:text-gray-400">Terminos y Servicio</a>
+              <a className="hover:text-gray-400">Terms and Service</a>
             </Link>
           </div>
         </div>
