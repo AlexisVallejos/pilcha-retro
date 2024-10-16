@@ -7,7 +7,7 @@ import Catalogo from '@/components/component/catalogo';
 import Carrito from '@/components/component/carrito';
 import Alert from '@/components/component/Alert';
 import Nosotros from '@/components/component/nosotros';
- 
+
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [carrito, setCarrito] = useState([]);
