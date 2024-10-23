@@ -105,7 +105,7 @@ function DetallesProducto() {
       <Alert message="Producto agregado al carrito!" visible={alertVisible} />
       <header>
         <nav>
-          <button onClick={() => setCurrentPage('detalles')}>Detalles del producto</button>
+          <button onClick={() => setCurrentPage('detalles')}>Detalles del product</button>
           <button onClick={() => setCurrentPage('carrito')}>Ir al carrito</button>
           <button onClick={() => setCurrentPage('catalogo')}>Catálogo</button> {/* Añadir botón de Catálogo */}
           <button onClick={() => setCurrentPage('nosotros')}>About</button>
