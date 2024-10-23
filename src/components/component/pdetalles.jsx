@@ -135,7 +135,7 @@ export default function PDetalles() {
             <p>{producto.detalles}</p>
           </div>
           <div className="flex items-center gap-4">
-            <Button size="lg" onClick={() => handleAgregarCarrito(producto)}>Añadir al carrito</Button>
+            <button onClick={() => addToCart(producto)} className="mt-2 bg-blue-500 text-white px-2 py-2 border border-blue-700 rounded-lg hover:opacity-75 transition-opacity">Añadir al carrito</button>
             <Button size="lg" variant="outline" onClick={() => handleAgregarFavoritos(producto)}>
               <HeartIcon className="w-4 h-4 mr-2" />
               Añadir a favoritos
