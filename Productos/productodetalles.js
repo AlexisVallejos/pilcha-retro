@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Alert from '@/components/component/Alert';  // Asegúrate de que esta ruta sea correcta
-import Carrito from '@/components/component/carrito';  // Asegúrate de que esta ruta sea correcta
-import Nosotros from '@/components/component/nosotros';  // Asegúrate de que esta ruta sea correcta
+import Alert from '@/components/component/Alert';
+import Carrito from '@/components/component/carrito';
+import Nosotros from '@/components/component/nosotros';
+import Catalogo from '@/components/component/catalogo';  // Asegúrate de que esta ruta sea correcta
 
 function DetallesProducto() {
   const router = useRouter();
@@ -86,6 +87,8 @@ function DetallesProducto() {
         );
       case 'carrito':
         return <Carrito items={carrito} addToCart={addToCart} handleBuy={handleBuy} />;
+      case 'catalogo':  // Añadimos el catálogo aquí
+        return <Catalogo addToCart={addToCart} />;
       case 'nosotros':
         return <Nosotros />;
       default:
@@ -104,6 +107,7 @@ function DetallesProducto() {
         <nav>
           <button onClick={() => setCurrentPage('detalles')}>Detalles del producto</button>
           <button onClick={() => setCurrentPage('carrito')}>Ir al carrito</button>
+          <button onClick={() => setCurrentPage('catalogo')}>Catálogo</button> {/* Añadir botón de Catálogo */}
           <button onClick={() => setCurrentPage('nosotros')}>About</button>
         </nav>
       </header>
