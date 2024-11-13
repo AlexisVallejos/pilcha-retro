@@ -103,23 +103,23 @@ function App() {
       <Alert message="Producto agregado al carrito!" visible={alertVisible} />
 
       <header className="custom-navbar">
-        <a className="flex items-center justify-center" href="#" onClick={() => setCurrentPage('home')}>
-          <img className="h-6 w-6" src='/img/logoo.png' alt="Pilcha Retro"></img>
+        <div className="flex items-center justify-center cursor-pointer" onClick={() => setCurrentPage('home')}>
+          <img className="h-6 w-6" src='/img/logoo.png' alt="Pilcha Retro" />
           <span className="sr-only">Retro Football Shirts</span>
-        </a>
+        </div>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('home')}>
+          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('home')}>
             Home
-          </a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('catalogo')}>
+          </button>
+          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('catalogo')}>
             Catalog
-          </a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('nosotros')}>
+          </button>
+          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('nosotros')}>
             About
-          </a>
-          <a className="text-sm font-medium hover:underline underline-offset-4" href="#" onClick={() => setCurrentPage('carrito')}>
+          </button>
+          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('carrito')}>
             Cart <span className="cart-count">({carrito.length})</span>
-          </a>
+          </button>
         </nav>
       </header>
 
@@ -131,9 +131,9 @@ function App() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex justify-between items-center">
             <p className="text-sm">© 2024 Pilcha Retro</p>
-            <Link href="#" legacyBehavior>
-              <a className="hover:text-gray-400">Terms and Service</a>
-            </Link>
+            <button onClick={() => setCurrentPage('terms')} className="hover:text-gray-400">
+              Terms and Service
+            </button>
           </div>
         </div>
       </footer>
@@ -142,4 +142,3 @@ function App() {
 }
 
 export default App;
- 
