@@ -151,32 +151,7 @@ function DetallesProducto() {
 
   return (
     <div>
-      <Alert message="Producto agregado al carrito!" visible={alertVisible} />
-
-      <header className="custom-navbar">
-        <div className="flex items-center justify-center cursor-pointer" onClick={() => setCurrentPage('home')}>
-          <img className="h-6 w-6" src='/img/logoo.png' alt="Pilcha Retro" />
-          <span className="sr-only">Retro Football Shirts</span>
-        </div>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('home')}>
-            Home
-          </button>
-          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('catalogo')}>
-            Catalog
-          </button>
-          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('nosotros')}>
-            About
-          </button>
-          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('carrito')}>
-            Cart <span className="cart-count">({carrito.length})</span>
-          </button>
-        </nav>
-      </header>
-
-      <main className="flex-1">
-        {renderPage()}
-      </main>
+      {renderPage()}
     </div>
   );
 }
