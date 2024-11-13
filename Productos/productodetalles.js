@@ -151,37 +151,32 @@ function DetallesProducto() {
 
   return (
     <div>
-      <Alert message="¡Producto agregado al carrito!" visible={alertVisible} />
-      <header className="bg-gray-800 text-white p-4">
-        <nav className="flex justify-center space-x-4">
-          <button 
-            onClick={() => setCurrentPage('detalles')}
-            className="hover:text-gray-300"
-          >
-            Detalles del producto
+      <Alert message="Producto agregado al carrito!" visible={alertVisible} />
+
+      <header className="custom-navbar">
+        <div className="flex items-center justify-center cursor-pointer" onClick={() => setCurrentPage('home')}>
+          <img className="h-6 w-6" src='/img/logoo.png' alt="Pilcha Retro" />
+          <span className="sr-only">Retro Football Shirts</span>
+        </div>
+        <nav className="ml-auto flex gap-4 sm:gap-6">
+          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('home')}>
+            Home
           </button>
-          <button 
-            onClick={() => setCurrentPage('carrito')}
-            className="hover:text-gray-300"
-          >
-            Carrito ({carrito.length})
+          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('catalogo')}>
+            Catalog
           </button>
-          <button 
-            onClick={() => setCurrentPage('catalogo')}
-            className="hover:text-gray-300"
-          >
-            Catálogo
-          </button>
-          <button 
-            onClick={() => setCurrentPage('nosotros')}
-            className="hover:text-gray-300"
-          >
+          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('nosotros')}>
             About
+          </button>
+          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('carrito')}>
+            Cart <span className="cart-count">({carrito.length})</span>
           </button>
         </nav>
       </header>
 
-      <main>{renderPage()}</main>
+      <main className="flex-1">
+        {renderPage()}
+      </main>
     </div>
   );
 }
