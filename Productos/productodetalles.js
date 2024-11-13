@@ -9,7 +9,14 @@ function DetallesProducto() {
   const router = useRouter();
   const { id } = router.query;
   const [producto, setProducto] = useState(null);
-  const [carrito, setCarrito] = useState([]);
+  const [carrito, setCarrito] = useState(() => {
+    // Cargar el carrito desde localStorage si existe
+    if (typeof window !== 'undefined') {
+      const savedCart = localStorage.getItem('carrito');
+      return savedCart ? JSON.parse(savedCart) : [];
+    }
+    return [];
+  });
   const [alertVisible, setAlertVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState('detalles');
 
@@ -31,6 +38,13 @@ function DetallesProducto() {
       fetchProducto();
     }
   }, [id]);
+
+  useEffect(() => {
+    // Guardar el carrito en localStorage cada vez que cambie
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+    }
+  }, [carrito]);
 
   const addToCart = (productoToAdd) => {
     if (!productoToAdd) return;
