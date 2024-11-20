@@ -17,6 +17,27 @@ const Carrito = ({ items = [], addToCart, removeFromCart }) => {
   }, []);
 
 
+  const createPreference = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/create_preference",
+        {
+          title: "remera retro",
+          quantity: 1,
+          price: 100,
+        }
+      );
+      console.log("Response:", response.data);
+      const { id } = response.data;
+      return id;
+    } catch (error) {
+      console.error(
+        "Error al crear la preferencia:",
+        error.response ? error.response.data : error.message
+      );
+      return null;
+    }
+  };
 
   const handleBuy = async () => {
     const id = await createPreference();
