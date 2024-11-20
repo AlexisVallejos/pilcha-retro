@@ -18,14 +18,17 @@ const Carrito = ({ items = [], addToCart, removeFromCart }) => {
 
   const createPreference = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:3000/create_preference",
-        {
-          title: "remera retro",
-          quantity: 1,
-          price: 100,
-        }
-      );
+      // Mapea los elementos del carrito a un formato compatible con Mercado Pago
+      const itemsPreference = items.map((item) => ({
+        title: item.nombre,
+        quantity: item.cantidad,
+        unit_price: item.precio, // MercadoPago usa "unit_price" en lugar de "price"
+      }));
+  
+      const response = await axios.post("http://localhost:3000/create_preference", {
+        items: itemsPreference, // Envía todos los productos en la preferencia
+      });
+  
       console.log("Response:", response.data);
       const { id } = response.data;
       return id;
@@ -37,6 +40,7 @@ const Carrito = ({ items = [], addToCart, removeFromCart }) => {
       return null;
     }
   };
+  
 
   const handleBuy = async () => {
     const id = await createPreference();
