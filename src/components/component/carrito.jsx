@@ -16,31 +16,7 @@ const Carrito = ({ items = [], addToCart, removeFromCart }) => {
     });
   }, []);
 
-  const createPreference = async () => {
-    try {
-      // Mapea los elementos del carrito a un formato compatible con Mercado Pago
-      const itemsPreference = items.map((item) => ({
-        title: item.nombre,
-        quantity: item.cantidad,
-        unit_price: item.precio, // MercadoPago usa "unit_price" en lugar de "price"
-      }));
-  
-      const response = await axios.post("http://localhost:3000/create_preference", {
-        items: itemsPreference, // Envía todos los productos en la preferencia
-      });
-  
-      console.log("Response:", response.data);
-      const { id } = response.data;
-      return id;
-    } catch (error) {
-      console.error(
-        "Error al crear la preferencia:",
-        error.response ? error.response.data : error.message
-      );
-      return null;
-    }
-  };
-  
+
 
   const handleBuy = async () => {
     const id = await createPreference();
