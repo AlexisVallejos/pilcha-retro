@@ -111,13 +111,9 @@ function App() {
           <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('home')}>
             Home
           </button>
-          <button
-  className="text-sm font-medium hover:underline underline-offset-4"
-  onClick={() => (window.location.href = 'http://localhost:5173/')}
->
-  Catalog
-</button>
-
+          <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('catalogo')}>
+            Catalog
+          </button>
           <button className="text-sm font-medium hover:underline underline-offset-4" onClick={() => setCurrentPage('nosotros')}>
             About
           </button>
